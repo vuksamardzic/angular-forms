@@ -1,8 +1,36 @@
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-8">
-      <h2>Form</h2>
-      <router-outlet></router-outlet>
+  <div class="row">
+    <div class="col-12 col-md-9 col-lg-6">
+      <form class="mt-4 px-4 py-3 basic-form"
+            autocomplete="off"
+            novalidate
+            #f="ngForm"
+            (submit)="onBasicFormSubmit(f)">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text"
+                 id="name"
+                 ngModel
+                 #name="ngModel"
+                 name="name"
+                 required
+                 class="form-control">
+          <div class="invalid-message" *ngIf="f.submitted && name.invalid">error</div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email"
+                 id="email"
+                 ngModel
+                 #email="ngModel"
+                 name="email"
+                 required
+                 class="form-control">
+          <div class="invalid-message" *ngIf="f.submitted && email.invalid">error</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
     </div>
   </div>
 </div>
+<router-outlet></router-outlet>
