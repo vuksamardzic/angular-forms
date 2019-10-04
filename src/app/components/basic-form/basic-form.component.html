@@ -1,0 +1,26 @@
+<form [formGroup]="basicForm"
+      class="mt-4 px-4 py-3 basic-form"
+      autocomplete="off"
+      (ngSubmit)="onBasicFormSubmit()">
+  <h4>Basic reactive form</h4>
+  <div class="form-group">
+    <label for="name">Name: *</label>
+    <input id="name"
+           type="text"
+           formControlName="name"
+           class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="age">Age: *</label>
+    <input id="age"
+           type="text"
+           formControlName="age"
+           class="form-control">
+    <div class="invalid-message">{{ error.age }}&nbsp;</div>
+  </div>
+  <p>Value: {{ basicForm.value | json }}</p>
+  <p>Status: {{ basicForm.status | json }}</p>
+  <button type="submit"
+          class="btn btn-primary">Submit
+  </button>
+</form>
