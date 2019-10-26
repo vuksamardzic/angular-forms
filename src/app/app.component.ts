@@ -10,8 +10,4 @@ export class AppComponent {
   constructor() {
 
   }
-
-  onBasicFormSubmit(form: NgForm): void {
-    console.log(form.value);
-  }
 }

@@ -1,40 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-md-9 col-lg-6">
-      <form class="mt-4 px-4 py-3 basic-form"
-            autocomplete="off"
-            novalidate
-            #f="ngForm"
-            (ngSubmit)="onBasicFormSubmit(f)">
-        <h4>Basic template form</h4>
-        <div class="form-group">
-          <label for="name">Name: *</label>
-          <input type="text"
-                 id="name"
-                 ngModel
-                 #name="ngModel"
-                 name="name"
-                 required
-                 class="form-control">
-          <div class="invalid-message" *ngIf="f.submitted && name.invalid">error</div>
-        </div>
-        <div class="form-group">
-          <label for="age">Age: *</label>
-          <input type="age"
-                 id="age"
-                 ngModel
-                 #age="ngModel"
-                 name="age"
-                 required
-                 class="form-control">
-          <div class="invalid-message" *ngIf="f.submitted && age.invalid">error</div>
-        </div>
-        <p>Value: {{ f.value | json }}</p>
-        <p>Status: {{ f.status | json }}</p>
-        <button type="submit"
-                class="btn btn-primary">Submit
-        </button>
-      </form>
+      <af-basic-template-form></af-basic-template-form>
     </div>
     <div class="col-12 col-md-9 col-lg-6">
       <af-basic-form></af-basic-form>
