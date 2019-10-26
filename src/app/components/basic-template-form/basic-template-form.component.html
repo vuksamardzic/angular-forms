@@ -1,0 +1,44 @@
+<form class="mt-4 px-4 py-3 basic-form"
+      autocomplete="off"
+      novalidate
+      #f="ngForm"
+      (ngSubmit)="onBasicFormSubmit(f)">
+  <h4>Basic template form</h4>
+  <div class="form-group">
+    <label for="name">Name: *</label>
+    <input type="text"
+           id="name"
+           ngModel
+           #name="ngModel"
+           name="name"
+           required
+           class="form-control">
+    <div class="invalid-message"
+         *ngIf="((name.touched || name.dirty) && name.invalid) || (name.invalid && f.submitted); else emptyName">This field is required *
+    </div>
+    <ng-template #emptyName>
+      <div class="invalid-message">&nbsp;</div>
+    </ng-template>
+  </div>
+  <div class="form-group">
+    <label for="age">Age: *</label>
+    <input type="number"
+           id="age"
+           ngModel
+           #age="ngModel"
+           name="age"
+           required
+           class="form-control">
+    <div class="invalid-message"
+         *ngIf="((age.touched || age.dirty) && age.invalid) || (age.invalid && f.submitted); else emptyAge">This field is required *
+    </div>
+    <ng-template #emptyAge>
+      <div class="invalid-message">&nbsp;</div>
+    </ng-template>
+  </div>
+  <p>Value: {{ f.value | json }}</p>
+  <p>Status: {{ f.status | json }}</p>
+  <button type="submit"
+          class="btn btn-primary">Submit
+  </button>
+</form>
